@@ -1,7 +1,9 @@
 export default {
   state: {
     loading: false,
-    error: null
+    error: null,
+    success: null,
+    search: ''
   },
   mutations: {
     setLoading (state, payload) {
@@ -12,6 +14,18 @@ export default {
     },
     clearError (state) {
       state.error = null
+    },
+    setSuccess (state, payload) {
+      state.success = payload
+    },
+    clearSuccess (state) {
+      state.success = null
+    },
+    setSearch (state, payload) {
+      state.search = payload
+    },
+    clearSearch (state, payload) {
+      state.search = ''
     }
   },
   actions: {
@@ -23,6 +37,18 @@ export default {
     },
     clearError ({ commit }) {
       commit('clearError')
+    },
+    setSuccess ({ commit }, payload) {
+      commit('setSuccess', payload)
+    },
+    clearSuccess ({ commit }) {
+      commit('clearSuccess')
+    },
+    setSearch ({ commit }, payload) {
+      commit('setSearch', payload)
+    },
+    clearSearch ({ commit }) {
+      commit('clearSearch')
     }
   },
   getters: {
@@ -31,6 +57,12 @@ export default {
     },
     error (state) {
       return state.error
+    },
+    success (state) {
+      return state.success
+    },
+    search (state) {
+      return state.search
     }
   }
 }
